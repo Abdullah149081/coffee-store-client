@@ -2,19 +2,23 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const AddCoffee = () => {
+  const handlerAddCoffee = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="coffee-container">
       <Link to="/">
-        <button className="text-[#374151] text-3xl" type="button">
-          <span className="inline-flex gap-4 items-center">
-            <FaArrowLeft className="w-5" />
+        <button className="text-[#374151] text-3xl  " type="button">
+          <span className="inline-flex gap-4 items-center text-shadow ">
+            <FaArrowLeft className="w-5 " />
             Back to home
           </span>
         </button>
       </Link>
       <div className="bg-[#F4F3F0] mt-12 py-4 px-2 lg:px-28 lg:py-16 rounded-lg">
-        <h1 className="text-center text-4xl text-[#374151] ">Add New Coffee</h1>
-        <form className=" mt-12 ">
+        <h1 className="text-center text-4xl text-[#374151] text-shadow ">Add New Coffee</h1>
+        <form onSubmit={handlerAddCoffee} className=" mt-12 ">
           <div className="grid lg:grid-cols-2 gap-4 mt-12 ">
             <div className="form-control">
               <label className="label">
