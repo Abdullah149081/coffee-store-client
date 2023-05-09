@@ -1,5 +1,6 @@
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddCoffee = () => {
   const handlerAddCoffee = (e) => {
@@ -14,7 +15,25 @@ const AddCoffee = () => {
     const photo = form.photo.value;
 
     const newCoffee = { name, chef, supplier, taste, category, details, photo };
-    console.log(newCoffee);
+    fetch("http://localhost:5000/coffee", {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(newCoffee),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "success",
+            text: "Coffee add successfully",
+            icon: "success",
+            confirmButtonText: "ok",
+          });
+          form.reset();
+        }
+      });
   };
 
   return (

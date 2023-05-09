@@ -25,10 +25,10 @@ const Home = () => {
           <h2 className="font-sans">Follow Us Now</h2>
           <h2 className="text-5xl font-bold text-[#331A15] coffee-shadow">Follow on Instagram</h2>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-12 ">
           {follow?.map((image) => (
             <div className="border rounded-lg " key={image.id}>
-              <img className="h-[350px] " src={image?.img} alt="img" />
+              <img className="h-[350px] rounded-lg w-full object-cover " src={image?.img} alt="img" />
             </div>
           ))}
         </div>
