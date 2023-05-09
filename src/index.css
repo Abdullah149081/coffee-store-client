@@ -15,3 +15,7 @@
 .text-shadow {
   text-shadow: 0px 0px 10px #374151;
 }
+
+.coffee-shadow {
+  text-shadow: 0px 0px 5px #374151;
+}

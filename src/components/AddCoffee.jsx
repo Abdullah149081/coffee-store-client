@@ -4,6 +4,17 @@ import { Link } from "react-router-dom";
 const AddCoffee = () => {
   const handlerAddCoffee = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const chef = form.chef.value;
+    const supplier = form.supplier.value;
+    const taste = form.taste.value;
+    const category = form.category.value;
+    const details = form.details.value;
+    const photo = form.photo.value;
+
+    const newCoffee = { name, chef, supplier, taste, category, details, photo };
+    console.log(newCoffee);
   };
 
   return (
@@ -26,7 +37,7 @@ const AddCoffee = () => {
               </label>
               <label className="input-group">
                 <span>Name</span>
-                <input type="text" placeholder="Enter coffee name" className="input input-bordered w-full" />
+                <input type="text" placeholder="Enter coffee name" name="name" className="input input-bordered w-full" />
               </label>
             </div>
             <div className="form-control">
@@ -35,7 +46,7 @@ const AddCoffee = () => {
               </label>
               <label className="input-group">
                 <span>Chef</span>
-                <input type="text" placeholder="Enter coffee chef" className="input input-bordered w-full" />
+                <input type="text" placeholder="Enter coffee chef" name="chef" className="input input-bordered w-full" />
               </label>
             </div>
             <div className="form-control">
@@ -44,7 +55,7 @@ const AddCoffee = () => {
               </label>
               <label className="input-group">
                 <span>Supplier</span>
-                <input type="text" placeholder="Enter coffee supplier" className="input input-bordered w-full" />
+                <input type="text" placeholder="Enter coffee supplier" name="supplier" className="input input-bordered w-full" />
               </label>
             </div>
             <div className="form-control">
@@ -53,7 +64,7 @@ const AddCoffee = () => {
               </label>
               <label className="input-group">
                 <span>Taste</span>
-                <input type="text" placeholder="Enter coffee taste" className="input input-bordered w-full" />
+                <input type="text" placeholder="Enter coffee taste" name="taste" className="input input-bordered w-full" />
               </label>
             </div>
             <div className="form-control">
@@ -62,7 +73,7 @@ const AddCoffee = () => {
               </label>
               <label className="input-group">
                 <span>Category</span>
-                <input type="text" placeholder="Enter coffee category" className="input input-bordered w-full" />
+                <input type="text" placeholder="Enter coffee category" name="category" className="input input-bordered w-full" />
               </label>
             </div>
             <div className="form-control">
@@ -71,7 +82,7 @@ const AddCoffee = () => {
               </label>
               <label className="input-group">
                 <span>Details</span>
-                <input type="text" placeholder="Enter coffee details" className="input input-bordered w-full" />
+                <input type="text" placeholder="Enter coffee details" name="details" className="input input-bordered w-full" />
               </label>
             </div>
           </div>
@@ -81,7 +92,7 @@ const AddCoffee = () => {
             </label>
             <label className="input-group">
               <span> URL</span>
-              <input type="text" placeholder="Enter photo URL" className="input input-bordered w-full" />
+              <input type="text" placeholder="Enter photo URL" name="photo" className="input input-bordered w-full" />
             </label>
           </div>
           <button className="btn mt-8 w-full bg-[#D2B48C] text-gray-800 hover:bg-transparent" type="submit">
