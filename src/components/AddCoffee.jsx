@@ -111,7 +111,7 @@ const AddCoffee = () => {
             </label>
             <label className="input-group">
               <span> URL</span>
-              <input type="text" placeholder="Enter photo URL" name="photo" className="input input-bordered w-full" />
+              <input type="text" placeholder="Enter photo URL" name="photo" className="input input-bordered w-full" required />
             </label>
           </div>
           <button className="btn mt-8 w-full bg-[#D2B48C] text-gray-800 hover:bg-transparent" type="submit">

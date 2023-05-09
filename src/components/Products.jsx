@@ -7,7 +7,7 @@ const Products = ({ product, handlerDelete }) => {
   return (
     <div className="bg-[#F5F4F1] rounded-lg py-8 lg:py-0 justify-between flex flex-col lg:flex-row items-center pr-10">
       <div>
-        <img src={photo} alt="" />
+        <img className="h-[239px] object-cover" src={photo} alt="" />
       </div>
       <div className="font-sans font-semibold space-y-4">
         <p>
@@ -26,7 +26,7 @@ const Products = ({ product, handlerDelete }) => {
             <FaEye />
           </button>
         </Link>
-        <Link to="/update">
+        <Link to={`/update/${_id}`}>
           <button className="btn" type="button">
             <FaPen />
           </button>

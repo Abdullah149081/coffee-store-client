@@ -20,7 +20,7 @@ const Home = () => {
   const handlerDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      text: "Are you sure that you want to delete it?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -34,7 +34,7 @@ const Home = () => {
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-              Swal.fire("Deleted!", "Your Coffee has been deleted.", "success");
+              Swal.fire("Good Luck !!!", "Deleted coffee details", "success");
               const newCoffee = coffee.filter((cof) => cof._id !== id);
               setCoffee(newCoffee);
             }
