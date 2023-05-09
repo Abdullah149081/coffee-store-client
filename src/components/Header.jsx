@@ -1,4 +1,3 @@
-import React from "react";
 import banner from "../assets/more/15.jpg";
 import logo from "../assets/more/logo1.png";
 
