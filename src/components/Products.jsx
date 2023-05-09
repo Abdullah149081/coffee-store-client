@@ -2,8 +2,8 @@ import React from "react";
 import { FaEye, FaPen, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Products = ({ product }) => {
-  const { name, chef, photo } = product;
+const Products = ({ product, handlerDelete }) => {
+  const { _id, name, chef, photo } = product;
   return (
     <div className="bg-[#F5F4F1] rounded-lg py-8 lg:py-0 justify-between flex flex-col lg:flex-row items-center pr-10">
       <div>
@@ -32,7 +32,7 @@ const Products = ({ product }) => {
           </button>
         </Link>
 
-        <button className="btn bg-[#EA4744] border-0" type="button">
+        <button onClick={() => handlerDelete(_id)} className="btn bg-[#EA4744] border-0" type="button">
           <FaTrash />
         </button>
       </div>

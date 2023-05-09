@@ -3,18 +3,45 @@
 import React, { useEffect, useState } from "react";
 import { FiCoffee } from "react-icons/fi";
 import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 import banner from "../assets/more/1.png";
 import Products from "./Products";
 
 const Home = () => {
-  const [coffee, setCoffee] = useState([]);
   const follow = useLoaderData();
+  const [coffee, setCoffee] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/coffee")
       .then((res) => res.json())
       .then((data) => setCoffee(data));
   }, []);
+
+  const handlerDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/coffee/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your Coffee has been deleted.", "success");
+              const newCoffee = coffee.filter((cof) => cof._id !== id);
+              setCoffee(newCoffee);
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div>
@@ -49,7 +76,7 @@ const Home = () => {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-32 relative z-0">
             {coffee.map((product) => (
-              <Products key={product._id} product={product} />
+              <Products key={product._id} product={product} handlerDelete={handlerDelete} />
             ))}
           </div>
         </div>
