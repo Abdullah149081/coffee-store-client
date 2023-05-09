@@ -1,26 +1,33 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { FiCoffee } from "react-icons/fi";
 import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
+  const [coffee, setCoffee] = useState([]);
   const follow = useLoaderData();
-  console.log(follow);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/coffee")
+      .then((res) => res.json())
+      .then((data) => setCoffee(data));
+  }, []);
+
   return (
-    <div>
-      <div className="bg-[url('./assets/more/3.png')] bg-no-repeat bg-cover  lg:bg-fixed">
-        <div className="lg:w-4/5 2xl:w-2/3  mx-auto lg:pl-96 2xl:pl-[36rem]   flex justify-center items-center lg:h-[800px]">
-          <div className="space-y-4 lg:space-y-8 px-4 py-10">
-            <h2 className="text-2xl lg:text-5xl  text-white">Would you like a Cup of Delicious Coffee?</h2>
-            <p className="text-xs lg:text-lg  font-sans text-white">
-              It's coffee time - Sip & Savor - Relaxation in every sip! Get the nostalgia back!! Your companion of every moment!!! Enjoy the beautiful moments and make them memorable.
-            </p>
-            <button type="button" className="btn text-2xl font-light bg-[#E3B577] text-gray-900 capitalize">
-              Learn More
-            </button>
-          </div>
+    <div className="coffee-container">
+      <div className="product-container mt-32">
+        <div className="text-center space-y-4 ">
+          <h2 className="font-sans">--- Sip & Savor ---</h2>
+          <h2 className="text-5xl font-bold text-[#331A15] coffee-shadow">Our Popular Products</h2>
+          <button className="btn text-2xl capitalize bg-[#E3B577] border-2 border-[#331A15] hover:bg-transparent hover:text-gray-900" type="button">
+            <span className="inline-flex items-center gap-4">
+              Add Coffee <FiCoffee className="text-[#331A15]" />
+            </span>
+          </button>
         </div>
       </div>
-      <div className="coffee-container">
+
+      <div className="follow-container mt-32">
         <div className="text-center space-y-2 ">
           <h2 className="font-sans">Follow Us Now</h2>
           <h2 className="text-5xl font-bold text-[#331A15] coffee-shadow">Follow on Instagram</h2>
