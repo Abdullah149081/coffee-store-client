@@ -35,8 +35,10 @@ const Home = () => {
           .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire("Good Luck !!!", "Deleted coffee details", "success");
-              const newCoffee = coffee.filter((cof) => cof._id !== id);
+              setTimeout(() => {
+                const newCoffee = coffee.filter((cof) => cof._id !== id);
               setCoffee(newCoffee);
+              }, 1500);
             }
           });
       }
